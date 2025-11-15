@@ -1,7 +1,0 @@
-[
-{
-  "directory": "D:/Helped/sem_6/EdgeDetectionViewer_project_ready/app/.cxx/Debug/3k605p5f/armeabi-v7a",
-  "command": "\"D:\\Software And Hardware\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe\" --target=armv7-none-linux-androideabi21 --sysroot=\"D:/Software And Hardware/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot\" -Dnative_lib_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -frtti -fexceptions -fno-limit-debug-info  -fPIC -o CMakeFiles\\native-lib.dir\\native-lib.cpp.o -c D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\native-lib.cpp",
-  "file": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\native-lib.cpp"
-}
-]
