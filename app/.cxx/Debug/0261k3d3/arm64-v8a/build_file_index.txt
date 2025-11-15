@@ -1,0 +1,1 @@
+D:\Helped\sem_6\EdgeDetectionViewer_project_ready\app\src\main\cpp\CMakeLists.txt

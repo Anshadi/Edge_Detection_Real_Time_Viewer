@@ -1,0 +1,156 @@
+[
+  {
+    "level_": 0,
+    "message_": "Start JSON generation. Platform version: 21 min SDK version: armeabi-v7a",
+    "file_": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1290201466
+  },
+  {
+    "level_": 0,
+    "message_": "rebuilding JSON D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\.cxx\\Debug\\0261k3d3\\armeabi-v7a\\android_gradle_build.json due to:",
+    "file_": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1807005889
+  },
+  {
+    "level_": 0,
+    "message_": "- no fingerprint file, will remove stale configuration folder",
+    "file_": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -322654997
+  },
+  {
+    "level_": 0,
+    "message_": "removing stale contents from \u0027D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\.cxx\\Debug\\0261k3d3\\armeabi-v7a\u0027",
+    "file_": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1335273917
+  },
+  {
+    "level_": 0,
+    "message_": "created folder \u0027D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\.cxx\\Debug\\0261k3d3\\armeabi-v7a\u0027",
+    "file_": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 2025815119
+  },
+  {
+    "level_": 0,
+    "message_": "executing cmake @echo off\n\"D:\\\\Software And Hardware\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\cmake.exe\" ^\n  \"-HD:\\\\Helped\\\\sem_6\\\\EdgeDetectionViewer_project_ready\\\\app\\\\src\\\\main\\\\cpp\" ^\n  \"-DCMAKE_SYSTEM_NAME\u003dAndroid\" ^\n  \"-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\" ^\n  \"-DCMAKE_SYSTEM_VERSION\u003d21\" ^\n  \"-DANDROID_PLATFORM\u003dandroid-21\" ^\n  \"-DANDROID_ABI\u003darmeabi-v7a\" ^\n  \"-DCMAKE_ANDROID_ARCH_ABI\u003darmeabi-v7a\" ^\n  \"-DANDROID_NDK\u003dD:\\\\Software And Hardware\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_ANDROID_NDK\u003dD:\\\\Software And Hardware\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_TOOLCHAIN_FILE\u003dD:\\\\Software And Hardware\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\\\\build\\\\cmake\\\\android.toolchain.cmake\" ^\n  \"-DCMAKE_MAKE_PROGRAM\u003dD:\\\\Software And Hardware\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\ninja.exe\" ^\n  \"-DCMAKE_CXX_FLAGS\u003d-frtti -fexceptions\" ^\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dD:\\\\Helped\\\\sem_6\\\\EdgeDetectionViewer_project_ready\\\\app\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\0261k3d3\\\\obj\\\\armeabi-v7a\" ^\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dD:\\\\Helped\\\\sem_6\\\\EdgeDetectionViewer_project_ready\\\\app\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\0261k3d3\\\\obj\\\\armeabi-v7a\" ^\n  \"-DCMAKE_BUILD_TYPE\u003dDebug\" ^\n  \"-BD:\\\\Helped\\\\sem_6\\\\EdgeDetectionViewer_project_ready\\\\app\\\\.cxx\\\\Debug\\\\0261k3d3\\\\armeabi-v7a\" ^\n  -GNinja\n",
+    "file_": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1060221750
+  },
+  {
+    "level_": 0,
+    "message_": "@echo off\n\"D:\\\\Software And Hardware\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\cmake.exe\" ^\n  \"-HD:\\\\Helped\\\\sem_6\\\\EdgeDetectionViewer_project_ready\\\\app\\\\src\\\\main\\\\cpp\" ^\n  \"-DCMAKE_SYSTEM_NAME\u003dAndroid\" ^\n  \"-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\" ^\n  \"-DCMAKE_SYSTEM_VERSION\u003d21\" ^\n  \"-DANDROID_PLATFORM\u003dandroid-21\" ^\n  \"-DANDROID_ABI\u003darmeabi-v7a\" ^\n  \"-DCMAKE_ANDROID_ARCH_ABI\u003darmeabi-v7a\" ^\n  \"-DANDROID_NDK\u003dD:\\\\Software And Hardware\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_ANDROID_NDK\u003dD:\\\\Software And Hardware\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_TOOLCHAIN_FILE\u003dD:\\\\Software And Hardware\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\\\\build\\\\cmake\\\\android.toolchain.cmake\" ^\n  \"-DCMAKE_MAKE_PROGRAM\u003dD:\\\\Software And Hardware\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\ninja.exe\" ^\n  \"-DCMAKE_CXX_FLAGS\u003d-frtti -fexceptions\" ^\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dD:\\\\Helped\\\\sem_6\\\\EdgeDetectionViewer_project_ready\\\\app\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\0261k3d3\\\\obj\\\\armeabi-v7a\" ^\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dD:\\\\Helped\\\\sem_6\\\\EdgeDetectionViewer_project_ready\\\\app\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\0261k3d3\\\\obj\\\\armeabi-v7a\" ^\n  \"-DCMAKE_BUILD_TYPE\u003dDebug\" ^\n  \"-BD:\\\\Helped\\\\sem_6\\\\EdgeDetectionViewer_project_ready\\\\app\\\\.cxx\\\\Debug\\\\0261k3d3\\\\armeabi-v7a\" ^\n  -GNinja\n",
+    "file_": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 941299031
+  },
+  {
+    "level_": 0,
+    "message_": "Exiting generation of D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\.cxx\\Debug\\0261k3d3\\armeabi-v7a\\compile_commands.json.bin normally",
+    "file_": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1239624805
+  },
+  {
+    "level_": 0,
+    "message_": "done executing cmake",
+    "file_": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1562300779
+  },
+  {
+    "level_": 0,
+    "message_": "hard linked D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\.cxx\\Debug\\0261k3d3\\armeabi-v7a\\compile_commands.json to D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\.cxx\\tools\\debug\\armeabi-v7a\\compile_commands.json",
+    "file_": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 143896356
+  },
+  {
+    "level_": 0,
+    "message_": "JSON generation completed without problems",
+    "file_": "D:\\Helped\\sem_6\\EdgeDetectionViewer_project_ready\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -794593433
+  }
+]
