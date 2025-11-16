@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -35,18 +37,61 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
+    
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    
+    buildFeatures {
+        viewBinding true
+    }
+    
     packagingOptions {
         resources {
             excludes += ['META-INF/DEPENDENCIES']
         }
     }
-
 }
 
 dependencies {
+    // Core Android
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    
+    // Material Design
     implementation 'com.google.android.material:material:1.9.0'
+    
+    // CameraX
+    def camerax_version = "1.3.0"
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-view:${camerax_version}"
+    
+    // Permission handling
+    implementation 'com.karumi:dexter:6.2.3'
+
+
+
+    implementation 'com.google.android.material:material:1.9.0' 
+         
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.22"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"
+    
+    // OpenCV (uncomment when ready)
+    // implementation project(':opencv')
+    // or
+    // implementation files('libs/opencv-4.7.0-android-sdk/opencv-4.7.0.aar')
 }
+
+// Add if using local OpenCV .aar
+// repositories {
+//     flatDir {
+//         dirs 'libs'
+//     }
+// }
