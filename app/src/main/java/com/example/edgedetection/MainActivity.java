@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.hardware.camera2.*;
+import android.view.Surface;
 import android.os.Handler;
 import android.os.HandlerThread;
 import java.io.FileOutputStream;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final int PREVIEW_W = 640;
     private final int PREVIEW_H = 480;
+    private int rotationDegrees = 0;
     private volatile boolean savedSample = false;
 
     @Override
@@ -60,7 +62,35 @@ public class MainActivity extends AppCompatActivity {
         CameraManager manager = (CameraManager) getSystemService(CAMERA_SERVICE);
         try {
             String cameraId = manager.getCameraIdList()[0];
-            imageReader = ImageReader.newInstance(PREVIEW_W, PREVIEW_H, android.graphics.ImageFormat.YUV_420_888, 2);
+            
+            // Get camera characteristics for orientation
+            CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
+            int sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
+            int rotation = getWindowManager().getDefaultDisplay().getRotation();
+            
+            // Calculate device rotation in degrees
+            int deviceRotation = 0;
+            switch (rotation) {
+                case Surface.ROTATION_0: deviceRotation = 0; break;
+                case Surface.ROTATION_90: deviceRotation = 90; break;
+                case Surface.ROTATION_180: deviceRotation = 180; break;
+                case Surface.ROTATION_270: deviceRotation = 270; break;
+            }
+            
+            // Calculate final rotation
+            if (characteristics.get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_FRONT) {
+                rotationDegrees = (sensorOrientation + deviceRotation) % 360;
+                rotationDegrees = (360 - rotationDegrees) % 360;  // Compensate for mirror
+            } else {  // Back-facing camera
+                rotationDegrees = (sensorOrientation - deviceRotation + 360) % 360;
+            }
+            
+            // Swap width and height if needed (90 or 270 degrees rotation)
+            boolean swapDimensions = rotationDegrees == 90 || rotationDegrees == 270;
+            int previewWidth = swapDimensions ? PREVIEW_H : PREVIEW_W;
+            int previewHeight = swapDimensions ? PREVIEW_W : PREVIEW_H;
+            
+            imageReader = ImageReader.newInstance(previewWidth, previewHeight, android.graphics.ImageFormat.YUV_420_888, 2);
             imageReader.setOnImageAvailableListener(this::onImageAvailable, backgroundHandler);
 
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) return;
@@ -95,8 +125,18 @@ public class MainActivity extends AppCompatActivity {
             image = reader.acquireLatestImage();
             if (image == null) return;
             byte[] rgba = YuvToRgbaConverter.yuv420ToRgba(image, PREVIEW_W, PREVIEW_H);
-            NativeLib.processFrame(rgba, PREVIEW_W, PREVIEW_H);
-            renderer.updateFrame(rgba, PREVIEW_W, PREVIEW_H);
+            
+            // Rotate the image data if needed
+            if (rotationDegrees != 0) {
+                rgba = rotateImageData(rgba, PREVIEW_W, PREVIEW_H, rotationDegrees);
+            }
+            
+            // Use the correct dimensions based on rotation
+            int outputWidth = (rotationDegrees == 90 || rotationDegrees == 270) ? PREVIEW_H : PREVIEW_W;
+            int outputHeight = (rotationDegrees == 90 || rotationDegrees == 270) ? PREVIEW_W : PREVIEW_H;
+            
+            NativeLib.processFrame(rgba, outputWidth, outputHeight);
+            renderer.updateFrame(rgba, outputWidth, outputHeight);
 
             if (savedSample) return;
             savedSample = true;
@@ -111,7 +151,9 @@ public class MainActivity extends AppCompatActivity {
         finally { if (image != null) image.close(); }
     }
 
-    @Override public void onRequestPermissionsResult(int requestCode, @NonNull String[] perms, @NonNull int[] results) {
+    @Override 
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] perms, @NonNull int[] results) {
+        super.onRequestPermissionsResult(requestCode, perms, results);
         if (requestCode == CAMERA_PERMISSION_CODE) {
             if (results.length>0 && results[0]==PackageManager.PERMISSION_GRANTED) {
                 setupAndStartCamera();
@@ -137,10 +179,51 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private byte[] rotateImageData(byte[] input, int width, int height, int rotation) {
+        if (rotation == 0) return input.clone();
+        
+        byte[] output = new byte[input.length];
+        int pixelSize = 4; // RGBA
+        
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int sourceIndex = (y * width + x) * pixelSize;
+                int destIndex;
+                
+                switch (rotation) {
+                    case 90: // 90 degrees clockwise
+                        destIndex = (x * height + (height - 1 - y)) * pixelSize;
+                        break;
+                    case 180: // 180 degrees
+                        destIndex = ((height - 1 - y) * width + (width - 1 - x)) * pixelSize;
+                        break;
+                    case 270: // 270 degrees clockwise (or 90 counter-clockwise)
+                        destIndex = ((width - 1 - x) * height + y) * pixelSize;
+                        break;
+                    default: // No rotation
+                        return input.clone();
+                }
+                
+                // Copy RGBA pixel
+                System.arraycopy(input, sourceIndex, output, destIndex, pixelSize);
+            }
+        }
+        return output;
+    }
+    
     @Override protected void onPause() {
-        if (captureSession!=null) { captureSession.close(); captureSession=null; }
-        if (cameraDevice!=null) { cameraDevice.close(); cameraDevice=null; }
-        if (imageReader!=null) { imageReader.close(); imageReader=null; }
+        if (captureSession != null) {
+            captureSession.close();
+            captureSession = null;
+        }
+        if (cameraDevice != null) {
+            cameraDevice.close();
+            cameraDevice = null;
+        }
+        if (imageReader != null) {
+            imageReader.close();
+            imageReader = null;
+        }
         stopBackgroundThread();
         super.onPause();
     }
