@@ -1,0 +1,19 @@
+{
+  "name": "edge-detection-viewer",
+  "version": "1.0.0",
+  "description": "Web viewer for edge detection with TypeScript",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "serve": "vite",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.10.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vite": "^4.3.9"
+  }
+}
