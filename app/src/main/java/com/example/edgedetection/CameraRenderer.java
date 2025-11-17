@@ -34,6 +34,7 @@ public class CameraRenderer implements Renderer {
     private long lastTime = System.nanoTime();
     private int frames = 0;
     private float fps = 0f;
+    private byte[] lastFrame;
 
     public CameraRenderer() {
         vertexBuffer = ByteBuffer.allocateDirect(squareCoords.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
@@ -45,6 +46,27 @@ public class CameraRenderer implements Renderer {
     public void updateFrame(byte[] rgba, int w, int h) {
         pendingFrame.set(rgba);
         frameW = w; frameH = h;
+        // Keep a reference to the last frame for capture
+        lastFrame = rgba.clone();
+    }
+    
+    /**
+     * Captures the current frame as a Bitmap
+     * @return Bitmap of the current frame or null if no frame is available
+     */
+    public android.graphics.Bitmap captureFrame() {
+        if (lastFrame == null || frameW <= 0 || frameH <= 0) {
+            return null;
+        }
+        
+        try {
+            android.graphics.Bitmap bitmap = android.graphics.Bitmap.createBitmap(frameW, frameH, android.graphics.Bitmap.Config.ARGB_8888);
+            bitmap.copyPixelsFromBuffer(java.nio.ByteBuffer.wrap(lastFrame));
+            return bitmap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

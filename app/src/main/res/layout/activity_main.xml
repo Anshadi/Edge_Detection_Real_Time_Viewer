@@ -15,14 +15,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- OpenGL Surface View (initially hidden) -->
-    <android.opengl.GLSurfaceView
+    <!-- OpenGL Surface View (custom, initially hidden) -->
+    <com.example.edgedetection.GLSurfaceViewWithRenderer
         android:id="@+id/glSurfaceView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:keepScreenOn="true"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Metrics overlay -->
+    <TextView
+        android:id="@+id/metricsOverlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#66000000"
+        android:padding="8dp"
+        android:text="FPS: --\nProc: -- ms"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,6 +51,7 @@
         android:layout_marginBottom="32dp"
         android:contentDescription="Capture"
         android:src="@android:drawable/ic_menu_camera"
+        android:elevation="10dp"
         app:backgroundTint="#FFFFFF"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,6 +66,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginBottom="32dp"
         android:text="Edge Detection"
+        android:elevation="10dp"
         app:backgroundTint="#6200EE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
